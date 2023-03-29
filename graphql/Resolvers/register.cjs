@@ -1,12 +1,13 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { UserInputError } = require('apollo-server');
+const { UserInputError } = require('apollo-server-express');
 
 const User=require('../../models/User.cjs')
 const generateToken=require('../../JWT/generateToken.cjs')
 module.exports={
     Mutation:{
         async register(_,registerInput){
+            console.log("first")
             let{username,password,confirmpassword,email}=registerInput.registerInput
             console.log(email)
             const user=await User.findOne({email})

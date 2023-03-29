@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server');
+const { gql } = require('apollo-server-express');
 module.exports=gql`
     input addressInput{
         apartment_society:String
@@ -18,8 +18,8 @@ module.exports=gql`
         balconies:Int
     }
     input LocationInput{
-        longitude:Int!
-        latitude:Int!
+        longitude:Float!
+        latitude:Float!
     }
     input PriceInput{
         value:Int!
@@ -37,7 +37,7 @@ module.exports=gql`
     }
 
     extend type Mutation{
-        addproperty(propInput:propInput,addressInput:addressInput,locationInput:LocationInput,dimensionsInput:DimensionsInput,areaInput:AreaInput,priceInput:PriceInput):Property!
+        addproperty(propInput:propInput,addressInput:addressInput,locationInput:LocationInput,dimensionsInput:DimensionsInput,areaInput:AreaInput,priceInput:PriceInput,imgname:String):Property!
         deleteproperty(propId:ID!):String!    
     }
 `;

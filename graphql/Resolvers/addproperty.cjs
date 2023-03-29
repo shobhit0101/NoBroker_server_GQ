@@ -4,10 +4,11 @@ module.exports={
     Mutation:{
         addproperty:async(_,args,context)=>{
             const user=checkAuth(context)
-            console.log(user)
-            const {propInput,addressInput,locationInput,dimensionsInput,areaInput,priceInput}=args
+            const {propInput,addressInput,locationInput,dimensionsInput,areaInput,priceInput,imgname}=args
+            console.log(imgname)
             const newProperty=new Property({
                 ...propInput,
+                imgname:imgname,
                 user:user.id,
                 address:{...addressInput},
                 location:{...locationInput},

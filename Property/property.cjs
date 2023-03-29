@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server');
+const { gql } = require('apollo-server-express');
 module.exports=gql`
     type Address{
         apartment_society:String
@@ -19,8 +19,8 @@ module.exports=gql`
         balconies:Int
     }
     type Location{
-        longitude:Int!
-        latitude:Int!
+        longitude:Float!
+        latitude:Float!
     }
     type Price{
         value:Int!
@@ -39,6 +39,7 @@ module.exports=gql`
         purpose:String!
         description:String
         price:Price!
+        imgname:String
         createdAt: String! 
     }
     

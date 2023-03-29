@@ -4,10 +4,10 @@ module.exports={
     Query:{
         getProperties:async()=>{
             try {
+                console.log("j")    
                 const prop = await Property.find().sort({ createdAt: -1 });
                 const properties=[]
                 for(const p of prop){
-                    console.log(p.user)
                     const user=await User.findById(p.user)
                     console.log(user)
                     properties.push({

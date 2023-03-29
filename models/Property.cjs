@@ -54,10 +54,9 @@ const PropSchema=new Schema({
         required:false
     },
     
-    image_file:
+    imgname:
     {
-        data: Buffer,
-        contentType: String
+        type:String
     },
     image:
     {

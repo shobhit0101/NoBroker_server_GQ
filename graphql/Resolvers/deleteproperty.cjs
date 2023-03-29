@@ -1,4 +1,4 @@
-const { AuthenticationError, UserInputError } = require('apollo-server');
+const { AuthenticationError, UserInputError } = require('apollo-server-express');
 const Property=require('../../models/Property.cjs')
 const checkAuth=require('../../JWT/checkAuth.cjs')
 module.exports={
