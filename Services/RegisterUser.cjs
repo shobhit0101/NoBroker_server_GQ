@@ -8,6 +8,7 @@ module.exports=gql`
     }
     extend type Mutation{
         register(registerInput:RegisterInput):User!
+        updateuser(username:String, password:String,email:String,hello:String):User!
         deleteuser:String!
     }
 `;

@@ -40,13 +40,13 @@ const PropSchema=new Schema({
             }
         },
         balconies:{
-            type:String,
+            type:Number,
         },
         bathrooms:{
-            type:String,
+            type:Number,
         },
         bedrooms:{
-            type:String,
+            type:Number,
         }
     },
     description:{
@@ -83,7 +83,7 @@ const PropSchema=new Schema({
         required:true
     },
     age:{
-        type:String,
+        type:Number,
         required:true
     },
     title:{
