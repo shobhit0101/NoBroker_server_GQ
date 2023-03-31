@@ -11,6 +11,14 @@ const { PubSub } = require("graphql-subscriptions")
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
 
+const nodemailer = require("nodemailer")
+var transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: 'groupfsd20@gmail.com',
+    pass: 'xwhtaglzavzfkkqx'
+  }
+});
 const usertypedef = require('./User/user.cjs')
 const getPropertiessquery = require('./Services/getProperty.cjs')
 const getUsersquery = require('./Services/getUser.cjs')
@@ -20,6 +28,13 @@ const logintypedef = require('./Services/Login.cjs')
 const registertypedef = require('./Services/RegisterUser.cjs')
 const sendMail = require('./mail/sendMail.cjs');
 
+const usertypedef = require('./User/user.cjs')
+const getPropertiessquery = require('./Services/getProperty.cjs')
+const getUsersquery = require('./Services/getUser.cjs')
+const Propertytypedef = require('./Property/property.cjs')
+const addPropertytypedef = require('./Services/createProperty.cjs')
+const logintypedef = require('./Services/Login.cjs')
+const registertypedef = require('./Services/RegisterUser.cjs')
 const cors = require("cors")
 const path = require('path')
 

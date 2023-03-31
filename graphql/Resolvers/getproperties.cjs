@@ -6,6 +6,7 @@ module.exports={
             try {
                 console.log("j")    
                 const prop = await Property.find().sort({ createdAt: -1 });
+                console.log(prop)
                 const properties=[]
                 for(const p of prop){
                     const user=await User.findById(p.user)

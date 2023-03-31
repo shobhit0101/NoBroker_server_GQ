@@ -9,11 +9,14 @@ module.exports={
         login:async(_,{email,password})=>{
             console.log("first")
             const user=await User.findOne({email})
+            console.log(password)
+            console.log(user)
             if(!user){
                 errors.general='User not found'
                 throw new UserInputError('User not found',{errors})
             }
             const match=await bcrypt.compare(password,user.password)
+            console.log(match)
             if(!match){
                 errors.general = 'Wrong crendetials';
                 throw new UserInputError('Wrong crendetials', { errors });

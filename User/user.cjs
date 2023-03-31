@@ -8,4 +8,10 @@ module.exports=gql`
         createdAt: String! 
         postings:[Property]!      
     }
+    type Queries{
+        name:String!
+        email:String!
+        message:String!
+        createdAt:String!
+    }
 `;
