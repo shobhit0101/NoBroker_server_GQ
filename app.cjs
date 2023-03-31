@@ -11,14 +11,6 @@ const { PubSub } = require("graphql-subscriptions")
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
 
-const nodemailer = require("nodemailer")
-var transporter = nodemailer.createTransport({
-  service: 'Gmail',
-  auth: {
-    user: 'groupfsd20@gmail.com',
-    pass: 'xwhtaglzavzfkkqx'
-  }
-});
 
 const sendMail = require('./mail/sendMail.cjs');
 
