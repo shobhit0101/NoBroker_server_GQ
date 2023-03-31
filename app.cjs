@@ -19,13 +19,7 @@ var transporter = nodemailer.createTransport({
     pass: 'xwhtaglzavzfkkqx'
   }
 });
-const usertypedef = require('./User/user.cjs')
-const getPropertiessquery = require('./Services/getProperty.cjs')
-const getUsersquery = require('./Services/getUser.cjs')
-const Propertytypedef = require('./Property/property.cjs')
-const addPropertytypedef = require('./Services/createProperty.cjs')
-const logintypedef = require('./Services/Login.cjs')
-const registertypedef = require('./Services/RegisterUser.cjs')
+
 const sendMail = require('./mail/sendMail.cjs');
 
 const usertypedef = require('./User/user.cjs')
