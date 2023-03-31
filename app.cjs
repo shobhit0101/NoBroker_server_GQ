@@ -4,7 +4,22 @@ const {ApolloServer,gql}=require('apollo-server-express')
 const {PubSub} = require("graphql-subscriptions")
 const mongoose = require('mongoose');
 
+const nodemailer=require("nodemailer")
+var transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+      user: 'groupfsd20@gmail.com',
+      pass: 'xwhtaglzavzfkkqx'
+  }
+});
 
+console.log('created');
+transporter.sendMail({
+from: 'groupfsd20@gmail.com',
+to: 'lakshya.maheshwari0809@gmail.com',
+subject: 'hello world!',
+text: 'hello world!'
+});
 const usertypedef=require('./User/user.cjs')
 const getPropertiessquery=require('./Services/getProperty.cjs')
 const getUsersquery=require('./Services/getUser.cjs')

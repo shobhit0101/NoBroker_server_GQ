@@ -38,7 +38,7 @@ module.exports=gql`
 
     extend type Mutation{
         addproperty(propInput:propInput,addressInput:addressInput,locationInput:LocationInput,dimensionsInput:DimensionsInput,areaInput:AreaInput,priceInput:PriceInput,imgname:String):Property!
-        # updateproperty(id:ID!,propInput:propInput,addressInput:addressInput,locationInput:LocationInput,dimensionsInput:DimensionsInput,areaInput:AreaInput,priceInput:PriceInput,imgname:String):Property!
+        updateproperty(id:ID!,propInput:propInput,addressInput:addressInput,locationInput:LocationInput,dimensionsInput:DimensionsInput,areaInput:AreaInput,priceInput:PriceInput,imgname:String):Property!
         deleteproperty(propId:ID!):String!    
     }
 `;

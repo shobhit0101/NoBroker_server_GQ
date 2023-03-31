@@ -6,10 +6,13 @@ const getPropertiesResolver=require('./Resolvers/getproperties.cjs')
 const getUsersResolver=require('./Resolvers/getusers.cjs')
 const deleteuserResolver=require('./Resolvers/deleteuser.cjs')
 const updateuserResolver=require('./Resolvers/updateuser.cjs')
+const updatepropertyResolver=require('./Resolvers/updateproperty.cjs')
+const contactusResolver=require('./Resolvers/contactus.cjs')
 module.exports={
     Query:{
         ...getPropertiesResolver.Query,
-        ...getUsersResolver.Query
+        ...getUsersResolver.Query,
+        ...contactusResolver.Query
     },
     Mutation:{
         ...loginResolver.Mutation,
@@ -17,6 +20,8 @@ module.exports={
         ...addPropertyResolver.Mutation,
         ...deletePropertyResolver.Mutation,
         ...deleteuserResolver.Mutation,
-        ...updateuserResolver.Mutation
+        ...updateuserResolver.Mutation,
+        ...updatepropertyResolver.Mutation,
+        ...contactusResolver.Mutation
     }
 }
