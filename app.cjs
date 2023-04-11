@@ -14,13 +14,16 @@ const bodyparser = require('body-parser');
 
 const sendMail = require('./mail/sendMail.cjs');
 
-const usertypedef = require('./User/user.cjs')
-const getPropertiessquery = require('./Services/getProperty.cjs')
-const getUsersquery = require('./Services/getUser.cjs')
-const Propertytypedef = require('./Property/property.cjs')
-const addPropertytypedef = require('./Services/createProperty.cjs')
-const logintypedef = require('./Services/Login.cjs')
-const registertypedef = require('./Services/RegisterUser.cjs')
+const usertypedef = require('./typedefs/User/user.cjs')
+const chattypedef = require('./typedefs/Chat/chat.cjs')
+const conversationtypedef = require('./typedefs/Services/conversation.cjs')
+const messagetypedef = require('./typedefs/Services/message.cjs')
+const getPropertiessquery = require('./typedefs/Services/getProperty.cjs')
+const getUsersquery = require('./typedefs/Services/getUser.cjs')
+const Propertytypedef = require('./typedefs/Property/property.cjs')
+const addPropertytypedef = require('./typedefs/Services/createProperty.cjs')
+const logintypedef = require('./typedefs/Services/Login.cjs')
+const registertypedef = require('./typedefs/Services/RegisterUser.cjs')
 const cors = require("cors")
 const path = require('path')
 
@@ -56,7 +59,7 @@ async function startApolloServer() {
   const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' });
 
   const app = express()
-  // app.use(morgan('dev'));
+  app.use(morgan('dev'));
 
   app.use(bodyparser.urlencoded({ extended: false }))
 
@@ -66,7 +69,7 @@ async function startApolloServer() {
   connectdb()
   const pubsub = new PubSub();
   const server = new ApolloServer({
-    typeDefs: [baseTypeDefs, addPropertytypedef, usertypedef, getUsersquery, Propertytypedef, logintypedef, registertypedef, getPropertiessquery],
+    typeDefs: [baseTypeDefs,chattypedef,conversationtypedef,messagetypedef, addPropertytypedef, usertypedef, getUsersquery, Propertytypedef, logintypedef, registertypedef, getPropertiessquery],
     resolvers,
     context: ({ req }) => ({ req, pubsub })
   });
@@ -114,7 +117,7 @@ async function startApolloServer() {
   })
   const PORT = process.env.port || 5000;
   app.listen(PORT, (req, res) => {
-    console.log(`http://localhost:${PORT}`)
+    console.log(`http://localhost:${PORT}/graphql`)
   })
   return { server, app }
 }

@@ -4,7 +4,7 @@ module.exports=gql`
         id:ID!
         email:String!
         username:String!
-        token: String!
+        token: String
         createdAt: String! 
         postings:[Property]!      
     }
