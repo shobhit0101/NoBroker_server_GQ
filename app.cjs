@@ -54,11 +54,12 @@ const baseTypeDefs = gql`
   type Query
   type Mutation
 `
+const app = express()
 async function startApolloServer() {
 
   const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' });
 
-  const app = express()
+  // const app = express()
   app.use(morgan('dev'));
 
   app.use(bodyparser.urlencoded({ extended: false }))
@@ -119,6 +120,7 @@ async function startApolloServer() {
   app.listen(PORT, (req, res) => {
     console.log(`http://localhost:${PORT}/graphql`)
   })
-  return { server, app }
+  return {server}
 }
-startApolloServer()
+let{server}=startApolloServer()
+module.exports=app
