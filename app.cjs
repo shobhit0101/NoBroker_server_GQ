@@ -11,7 +11,7 @@ const { PubSub } = require("graphql-subscriptions")
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
 
-
+// sadfas
 const sendMail = require('./mail/sendMail.cjs');
 
 const usertypedef = require('./typedefs/User/user.cjs')
@@ -70,7 +70,7 @@ async function startApolloServer() {
   connectdb()
   const pubsub = new PubSub();
   const server = new ApolloServer({
-    typeDefs: [baseTypeDefs,chattypedef,conversationtypedef,messagetypedef, addPropertytypedef, usertypedef, getUsersquery, Propertytypedef, logintypedef, registertypedef, getPropertiessquery],
+    typeDefs: [baseTypeDefs, chattypedef, conversationtypedef, messagetypedef, addPropertytypedef, usertypedef, getUsersquery, Propertytypedef, logintypedef, registertypedef, getPropertiessquery],
     resolvers,
     context: ({ req }) => ({ req, pubsub })
   });
@@ -120,7 +120,7 @@ async function startApolloServer() {
   app.listen(PORT, (req, res) => {
     console.log(`http://localhost:${PORT}/graphql`)
   })
-  return {server}
+  return { server }
 }
-let{server}=startApolloServer()
-module.exports=app
+let { server } = startApolloServer()
+module.exports = app
